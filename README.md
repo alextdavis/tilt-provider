@@ -99,7 +99,7 @@ Now you're ready to create the adapter script. This needs to be named
 (typically this would be `Resources/Views/adapter.rb`). Here's a sample file:
 
 ```ruby
-#!/Users/alex/.rvm/rubies/ruby-2.4.1/bin/ruby
+#!/usr/bin/env ruby
 require 'vapor_tilt_adapter'
 
 view_dir          = ARGV[0]
@@ -120,17 +120,13 @@ MyRenderer.new.render(view_dir, template_filename, output_path, context)
 
 ```
 
-Let's go through how this works.
-- The shebang is required. This is because the Swift code runs this file as a
-  script, rather than passing as an argument to the Ruby interpreter. You need
-  to set it to the location of your ruby install. You can get this path by
-  running `which ruby`.
-- The `view_dir`, `template_filename`, and `output_path`, come through as
-  command line arguments. The `context`, the JSON string which carries any data
-  from Swift to Ruby, is piped in via the Standard Input. You have the option to
-  manipulate these values if you'd like, but you shouldn't need to.
-- Defining your own subclass of `VaporTiltAdapter::Renderer` is your opportunity
-  to customize the behavior of the renderer.
+The `view_dir`, `template_filename`, and `output_path`, come through as command
+line arguments. The `context`, the JSON string which carries any data from Swift
+to Ruby, is piped in via the Standard Input. You have the option to manipulate
+these values if you'd like, but you shouldn't need to.
+
+Defining your own subclass of `VaporTiltAdapter::Renderer` is your opportunity
+to customize the behavior of the renderer.
 
 Once you create your adapter script, make sure that the Vapor process has
 execute access to it.
