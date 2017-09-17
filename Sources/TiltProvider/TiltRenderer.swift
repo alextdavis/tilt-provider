@@ -10,6 +10,15 @@ public final class TiltRenderer: ViewRenderer {
         self.viewsDir = viewsDir
     }
 
+    /**
+        Renders a view.
+
+        - Parameter path: The filename of the view template.
+        - Parameter context: A Node to be converted into a JSON Object. This is used to pass data to the template
+          renderer. Key/value pair for which the key begins with an "@" character will be represented as instance
+          variables. The only other key which is currently recognized is "layout", which can be used to specify a layout
+          template.
+    */
     public func make(_ path: String, _ context: Node) throws -> View {
         let tmp_filename = "/tmp/me.alextdavis.tilt-provider/\(UUID().uuidString).html"
         let task = Process()

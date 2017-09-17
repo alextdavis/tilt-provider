@@ -1,8 +1,7 @@
 import Core
 import Vapor
 
-/// Use this provider to use Leaf as your
-/// view renderer
+/// Use this provider to use Tilt as your view renderer
 
 public final class Provider: Vapor.Provider {
     public static let repositoryName = "tilt-provider"
