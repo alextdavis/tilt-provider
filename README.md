@@ -57,6 +57,18 @@ Add this line to the `dependencies` array in your Package.swift:
 .Package(url: "https://github.com/alextdavis/tilt-provider.git", majorVersion: 0),
 ```
 
+Then, add the provider to your droplet in `Setup.swift`:
+
+```swift
+extension Config {
+    public func setup() throws {
+        // ...
+        try addProvider(TiltProvider.Provider.self)
+        // ...
+    }
+}
+```
+
 Then, edit `config/droplet.json` so that the view field reads "tilt":
 
 ```swift
