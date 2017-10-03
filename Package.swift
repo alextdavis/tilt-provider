@@ -1,7 +1,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "tilt-provider",
+    name: "TiltProvider",
     targets: [
         Target(name: "TiltProvider"),
     ],
